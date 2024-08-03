@@ -1,5 +1,6 @@
 const gridContainer = document.querySelector(".grid-container");
 const colorPicker = document.querySelector(".color-picker");
+const clearGridBtn = document.querySelector(".clear-grid-btn");
 
 function createBoxes(numberOfBoxes) {
     let counter = numberOfBoxes * numberOfBoxes;
@@ -12,6 +13,9 @@ function createBoxes(numberOfBoxes) {
             gridDiv.style.backgroundColor = colorPicker.value;
         }
         )
+        clearGridBtn.addEventListener('click', () => {
+            gridDiv.style.backgroundColor = '';
+        })
         gridContainer.appendChild(gridDiv)
         
     }
