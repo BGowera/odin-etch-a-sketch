@@ -1,6 +1,9 @@
 const gridContainer = document.querySelector(".grid-container");
 const colorPicker = document.querySelector(".color-picker");
 const clearGridBtn = document.querySelector(".clear-grid-btn");
+const eraseBtn = document.querySelector(".erase-btn");
+const penBtn = document.querySelector(".pen-btn");
+
 
 function createBoxes(numberOfBoxes) {
     let counter = numberOfBoxes * numberOfBoxes;
@@ -9,16 +12,28 @@ function createBoxes(numberOfBoxes) {
         let gridDiv = document.createElement("div");
         gridDiv.classList.add("grid-item");
         gridDiv.style.flexBasis = `${basisCalculation}%`;
-        gridDiv.addEventListener('mouseenter', () => {
+        function penMode() {
+           gridDiv.addEventListener('mouseenter', () => {
             gridDiv.style.backgroundColor = colorPicker.value;
         }
-        )
-        clearGridBtn.addEventListener('click', () => {
-            gridDiv.style.backgroundColor = '';
-        })
+        )  
+        }
+        penMode()
+        function clear() {
+            gridDiv.style.backgroundColor=''
+        }
+        clearGridBtn.addEventListener('click',clear)
+        penBtn.addEventListener('click', penMode)
+        eraseBtn.addEventListener("click", () => {
+               gridDiv.addEventListener("mouseenter", () => {
+					clear()
+				});
+           });
         gridContainer.appendChild(gridDiv)
-        
+   
     }
 }
 
+
+  
 createBoxes(16)
