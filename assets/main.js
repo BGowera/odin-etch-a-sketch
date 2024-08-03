@@ -1,4 +1,5 @@
 const gridContainer = document.querySelector(".grid-container");
+const colorPicker = document.querySelector(".color-picker");
 
 function createBoxes(numberOfBoxes) {
     let counter = numberOfBoxes * numberOfBoxes;
@@ -6,11 +7,13 @@ function createBoxes(numberOfBoxes) {
     for (let i = 0; i < counter; i++){
         let gridDiv = document.createElement("div");
         gridDiv.classList.add("grid-item");
-        gridContainer.appendChild(gridDiv)
-        gridDiv.style.flexBasis = `${basisCalculation}%`
+        gridDiv.style.flexBasis = `${basisCalculation}%`;
         gridDiv.addEventListener('mouseenter', () => {
-            gridDiv.style.backgroundColor='black'
-        })
+            gridDiv.style.backgroundColor = colorPicker.value;
+        }
+        )
+        gridContainer.appendChild(gridDiv)
+        
     }
 }
 
