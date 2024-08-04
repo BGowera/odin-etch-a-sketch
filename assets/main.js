@@ -5,8 +5,7 @@ const clearGridBtn = document.querySelector(".clear-grid-btn");
 const eraseBtn = document.querySelector(".erase-btn");
 const penBtn = document.querySelector(".pen-btn");
 const changeGridSizeBtn = document.querySelector(".change-grid-size-btn");
-
-
+const opacityModeBtn = document.querySelector(".opacity-mode-btn");
 
 function createBoxes(numberOfBoxes) {
 	let counter = numberOfBoxes * numberOfBoxes;
@@ -30,6 +29,12 @@ function createBoxes(numberOfBoxes) {
 				clear();
 			});
 		});
+		opacityModeBtn.addEventListener('click', () => {
+			gridDiv.addEventListener('mouseenter', () => {
+				gridDiv.classList.add('opacity')
+			})
+		})
+
 		gridContainer.appendChild(gridDiv);
 	}
 }
@@ -39,6 +44,10 @@ createBoxes(16);
 function gridSizeChange(input) {
 	gridContainer.replaceChildren();
 	input = parseInt(prompt("What would you like your grid size to be? Pick any number between 1 and 100"));
+	if (input > 100 || input < 1) {
+		alert('Invalid Number! Please press the button again to pick a number between 1 and 100');
+		return;
+	}
 	return createBoxes(input);
 }
 
