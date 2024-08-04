@@ -7,6 +7,7 @@ const penBtn = document.querySelector(".pen-btn");
 const changeGridSizeBtn = document.querySelector(".change-grid-size-btn");
 
 
+
 function createBoxes(numberOfBoxes) {
 	let counter = numberOfBoxes * numberOfBoxes;
 	let basisCalculation = (numberOfBoxes / counter) * 100;
