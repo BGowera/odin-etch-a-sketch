@@ -5,7 +5,7 @@ const clearGridBtn = document.querySelector(".clear-grid-btn");
 const eraseBtn = document.querySelector(".erase-btn");
 const penBtn = document.querySelector(".pen-btn");
 const changeGridSizeBtn = document.querySelector(".change-grid-size-btn");
-const opacityModeBtn = document.querySelector(".opacity-mode-btn");
+const rainbowModeBtn = document.querySelector(".rainbow-mode-btn");
 
 function createBoxes(numberOfBoxes) {
 	let counter = numberOfBoxes * numberOfBoxes;
@@ -15,6 +15,7 @@ function createBoxes(numberOfBoxes) {
 		let gridDiv = document.createElement("div");
 		gridDiv.classList.add("grid-item");
 		gridDiv.style.flexBasis = `${basisCalculation}%`;
+
 		//functions
 
 		function penMode() {
@@ -25,17 +26,32 @@ function createBoxes(numberOfBoxes) {
 		function clear() {
 			gridDiv.style.backgroundColor = "";
 		}
+
+		function getRandomColor() {
+			let letters = "0123456789ABCDEF";
+			let color = "#";
+			for (let i = 0; i < 6; i++) {
+				color += letters[Math.floor(Math.random() * 16)];
+			}
+			return color;
+		}
+
+		function rainbowMode() {
+			gridDiv.addEventListener("mouseenter", () => {
+				gridDiv.style.background = getRandomColor();
+			});
+		}
 		//event listeners
 
 		eraseBtn.addEventListener("click", () => {
-			gridDiv.addEventListener("mouseenter", () => {
-				clear();
-			});
+			gridDiv.addEventListener("mouseenter", clear);
 		});
 		clearGridBtn.addEventListener("click", clear);
 		penBtn.addEventListener("click", penMode);
+
+		rainbowModeBtn.addEventListener("click", rainbowMode);
 		//function end
-		
+
 		gridContainer.appendChild(gridDiv);
 	}
 }
