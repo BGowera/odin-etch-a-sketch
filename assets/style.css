@@ -17,5 +17,5 @@
 .grid-item {
 	/*border: 1px solid rgb(189, 189, 189);*/
 	flex: 1;
-	
+	/*opacity: var(--grid_opacity, 0);*/
 }
