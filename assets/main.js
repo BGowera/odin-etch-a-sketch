@@ -41,32 +41,33 @@ function createBoxes(numberOfBoxes) {
 			gridDiv.addEventListener("mouseenter", () => {
 				gridDiv.style.background = getRandomColor();
 			});
-
-		function opacityMode() {
-			gridDiv.addEventListener('mouseenter', () => {
-				gridDiv.style.backgroundColor = colorPicker.value;
-				let currentOpacity = parseFloat(gridDiv.style.opacity) || 0;
-				if (currentOpacity < 1) {
-					gridDiv.style.opacity = currentOpacity + 0.1
-				}
-			})
 		}
-		//event listeners
 
-		eraseBtn.addEventListener("click", () => {
-			gridDiv.addEventListener("mouseenter", clear);
-		});
-		clearGridBtn.addEventListener("click", clear);
-		penBtn.addEventListener("click", penMode);
+			function opacityMode() {
+				gridDiv.addEventListener('mouseenter', () => {
+					gridDiv.style.backgroundColor = colorPicker.value;
+					let currentOpacity = parseFloat(gridDiv.style.opacity) || 0;
+					if (currentOpacity < 1) {
+						gridDiv.style.opacity = currentOpacity + 0.1
+					}
+				})
+			}
+			//event listeners
 
-		rainbowModeBtn.addEventListener("click", rainbowMode);
-		opacityModeBtn.addEventListener('click',opacityMode)
+			eraseBtn.addEventListener("click", () => {
+				gridDiv.addEventListener("mouseenter", clear);
+			});
+			clearGridBtn.addEventListener("click", clear);
+			penBtn.addEventListener("click", penMode);
 
-		//function end
+			rainbowModeBtn.addEventListener("click", rainbowMode);
+			opacityModeBtn.addEventListener('click', opacityMode)
 
-		gridContainer.appendChild(gridDiv);
+			//function end
+
+			gridContainer.appendChild(gridDiv);
+		}
 	}
-}
 
 createBoxes(16);
 
