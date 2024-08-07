@@ -11,3 +11,4 @@ An etch-a-sketch web app to practice DOM manipulation skills. Press the pen mode
 5. **Change Grid Size**: Click the "Change Grid Size" button and enter a number between 1 and 100 to create a new grid with the specified size.
 6, **Opacity Mode**: This button turns opacity mode on, ie, the background color of the grid cells will gradually get stronger as you hover. NB this will not work if you had already selected pen mode previously. The pen mode button will also turn this feature off.
 
+See a live preview [here](https://bgowera.github.io/odin-etch-a-sketch/)
