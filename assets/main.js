@@ -14,7 +14,7 @@ function createBoxes(numberOfBoxes) {
 
 	for (let i = 0; i < counter; i++) {
 		let gridDiv = document.createElement("div");
-		gridDiv.classList.add("grid-item");
+		gridDiv.classList.add("grid-item", "transitions");
 		gridDiv.style.flexBasis = `${basisCalculation}%`;
 
 		//functions
